@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    volumes:
+      - myvol:/data/dir
+    networks:
+      - mynet
+   mongo_express:
+     image: mongo-express
+     volumes:
+       -myvol:/test
+     networks:
+       -mynet
+volumes:
+  myvol:
+    external: true
+networks:
+  mynet:
+    external: true
+
+
